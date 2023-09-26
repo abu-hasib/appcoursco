@@ -17,8 +17,9 @@ query GetTracks {
 }
 `
 
+
 async function getPosts() {
-  const { data } = await fetch(process.env.URL!, {
+  const { data } = await fetch("https://coursco.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
