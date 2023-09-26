@@ -1,4 +1,7 @@
+import Image from "next/image";
+import styles from "./page.module.css";
 import Tracks from "@/components/tracks";
+import { ApolloClient, ApolloProvider, InMemoryCache, gql } from "@apollo/client";
 
 const tracks = `
 query GetTracks {
@@ -17,9 +20,8 @@ query GetTracks {
 }
 `
 
-
 async function getPosts() {
-  const { data } = await fetch("https://localhost:4000", {
+  const { data } = await fetch(`${process.env.NEXT_PUBLIC_URL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
